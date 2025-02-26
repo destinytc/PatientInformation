@@ -1,0 +1,100 @@
+﻿@page
+@model PatientInformation.Pages.Patients.CreatePatientModel
+@{
+}
+
+<br>
+<h2>Create New Patient</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role ='alert'>
+
+        <strong>@Model.errorMessage</strong>
+        <button type ='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
+        </button>
+
+    </div>
+}
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">First Name</label>
+        <div class="col-sm-6">
+            <input type ="text" class="form-control" name="firstName" value="@Model.patientInfo.firstName">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Last Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="lastName" value="@Model.patientInfo.lastName">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="email" value="@Model.patientInfo.email">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Phone Number</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="phone" value="@Model.patientInfo.phone">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Address</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="address" value="@Model.patientInfo.address">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">City</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="city" value="@Model.patientInfo.city">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">State</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="state" value="@Model.patientInfo.state">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Zip Code</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="zipCode" value="@Model.patientInfo.zipCode">
+        </div>
+    </div>
+
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+
+            <strong>@Model.successMessage</strong>
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='close'>
+            </button>
+
+        </div>
+    }
+
+
+    <div class="row mb-3">
+
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary" name="Submit">Submit</button>
+        </div>
+
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+
+    </div>
+</form>
