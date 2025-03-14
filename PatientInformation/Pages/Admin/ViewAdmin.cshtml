@@ -1,0 +1,40 @@
+﻿@page
+@model PatientInformation.Pages.Admin.ViewAdminModel
+@{
+}
+
+<br />
+<h2>Admin Information</h2>
+<a class = 'btn btn-primary btn-sm' href='/Admin/CreateAdmin'>
+    New Admin
+ </a>
+
+ <table class ="table">
+     <thead>
+         <tr>
+             <th>ID</th>
+             <th>First Name</th>
+             <th>Last Name</th>
+             <th>Email</th>
+             <th>Username</th>
+             <th>Password</th>
+         </tr>
+     </thead>
+     <tbody>
+         @foreach(var item in Model.listAdmin){
+             <tr>
+                 <td>@item.admin_id</td>
+                 <td>@item.admin_firstName</td>
+                 <td>@item.admin_lastName</td>
+                 <td>@item.admin_email</td>
+                 <td>@item.admin_username</td>
+                 <td>@item.admin_password</td>
+                 <td>
+                    <a class="btn btn-primary btn-sm" href="/Admin/EditAdmin?admin_id=@item.admin_id">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="/Admin/DeleteAdmin?admin_id=@item.admin_id">Delete</a>
+                 </td>
+             </tr>
+         }
+     </tbody>
+ </table>
+
