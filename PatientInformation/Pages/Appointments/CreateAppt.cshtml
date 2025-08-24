@@ -1,0 +1,83 @@
+﻿@page
+@model PatientInformation.Pages.Appointments.CreateApptModel
+@{
+
+
+}
+
+<br>
+<h2>Schedule Appointment</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role ='alert'>
+
+        <strong>@Model.errorMessage</strong>
+        <button type ='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
+        </button>
+
+    </div>
+}
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Time</label>
+        <div class="col-sm-6">
+            <input type ="time" class="form-control" name="appt_time" value="@Model.apptInfo.appt_time">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Date</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" name="appt_date" value="@Model.apptInfo.appt_date">
+        </div>
+    </div>
+    
+    
+    <div class="row md-3">
+        <label class="col-sm-3 col-form-label">Patient ID</label>
+        <div class="col-sm-6">
+            
+        <select style="width: 100%">
+            @foreach(var item in Model.listPatients)
+            {
+                 <option value="@Model.apptInfo.patient_id" name="patient_id">@item.id</option>
+            }
+            
+
+        </select>
+          
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Patient ID</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="patient_id" value="@Model.apptInfo.patient_id">
+        </div>
+    </div>
+
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+
+            <strong>@Model.successMessage</strong>
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='close'>
+            </button>
+
+        </div>
+    }
+
+
+    <div class="row mb-3">
+
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary" name="Submit">Submit</button>
+        </div>
+
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Appointments/Index" role="button">Cancel</a>
+        </div>
+
+    </div>
+</form>

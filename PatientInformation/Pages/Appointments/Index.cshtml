@@ -1,0 +1,40 @@
+﻿@page
+@model PatientInformation.Pages.Appointments.IndexModel
+@{
+}
+
+<br />
+<h2> Appointment Information</h2>
+<a class = 'btn btn-primary btn-sm' href='/Appointments/CreateAppt'>
+    New Appointment
+</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Patient ID</th>
+           
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listAppts)
+        {
+            <tr>
+                <td>@item.appt_id</td>
+                <td>@item.appt_time</td>
+                <td>@item.appt_date</td>
+                <td>@item.patient_id</td>
+                
+
+                <td>
+                    <a class = "btn btn-primary btn-sm" href="/Appointments/EditAppt?id=@item.appt_id">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="/Appointments/DeleteAppt?id=@item.appt_id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

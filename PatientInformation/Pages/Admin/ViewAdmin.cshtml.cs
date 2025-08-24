@@ -8,6 +8,7 @@ namespace PatientInformation.Pages.Admin
 {
     public class ViewAdminModel : PageModel
     {
+
         public List<AdminInfo> listAdmin = new List<AdminInfo>();
         public void OnGet()
         {
